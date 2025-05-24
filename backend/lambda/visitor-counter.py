@@ -18,4 +18,4 @@ def lambda_handler(event, context):
         'body': json.dumps({'visits': int(response['Attributes']['visits'])})
     }
 
-# test action
+# test action 2
