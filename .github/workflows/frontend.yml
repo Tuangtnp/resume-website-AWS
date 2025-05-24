@@ -5,7 +5,9 @@ on:
     branches:
       - main
     paths:
-      - 'website/frontend/**'
+      - 'frontend/assets/**'
+      - 'frontend/index.html'
+      - 'frontend/error.html'
 
 jobs:
   deploy:
@@ -22,8 +24,12 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
-      - name: Sync files to S3
-        run: aws s3 sync website/frontend/ s3://thanaphat.site --delete
+      - name: Sync HTML files to S3
+        run: |
+          aws s3 cp frontend/index.html s3://thanaphat.site/index.html
+          aws s3 cp frontend/error.html s3://thanaphat.site/error.html 
+      - name: Sync assets to S3
+        run: aws s3 sync frontend/assets/ s3://thanaphat.site/assets/ --delete
         
       - name: Invalidate CloudFront cache
         run: |
