@@ -28,13 +28,13 @@ jobs:
           aws-region: us-east-1
 
       - name: Zip Lambda code
-        working-directory: website/backend/lambda
+        working-directory: backend/lambda
         run: |
           ls -lrt
           zip visitor-counter1.zip visitor-counter.py
 
       - name: Deploy Lambda function
-        working-directory: website/backend/lambda
+        working-directory: backend/lambda
         run: |
           ls -lrt
           aws lambda update-function-code \
