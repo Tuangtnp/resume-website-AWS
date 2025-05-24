@@ -231,7 +231,7 @@
    */
 
   async function fetchVisitorCount() {
-      const response = await fetch('https://eadewtha7i.execute-api.us-east-1.amazonaws.com');
+      const response = await fetch('https://jvntkc6mlh.execute-api.us-east-1.amazonaws.com/');
       const data = await response.json();
       document.getElementById('visitor-count').textContent = data.visits;
   }
