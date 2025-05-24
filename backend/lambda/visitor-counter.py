@@ -17,3 +17,5 @@ def lambda_handler(event, context):
         'headers': {'Access-Control-Allow-Origin': '*'},
         'body': json.dumps({'visits': int(response['Attributes']['visits'])})
     }
+
+# test action
